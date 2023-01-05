@@ -1,0 +1,9 @@
+@import "const";
+.viewer-list {
+  height: 169px;
+
+  & > li {
+    height: 169px;
+    width: 110px;
+  }
+}
