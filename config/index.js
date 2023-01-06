@@ -14,17 +14,20 @@ module.exports = {
 
     // Various Dev Server settings 192.168.0.108
     host: '192.168.0.108', // can be overwritten by process.env.HOST
-    port: 8081, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
+    port: 8091, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     errorOverlay: true,
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
     proxyTable: {
       '/api': {
-        target: 'https://sex.nyan.xyz/',
+        target: 'http://localhost:8090',
         changeOrigin: true,
         secure: false,
-        ws: true
+        ws: true,
+        pathRewrite: {
+          '^/api': '/'
+        }
       }
     },
 

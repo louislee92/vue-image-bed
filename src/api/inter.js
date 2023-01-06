@@ -1,6 +1,10 @@
 import service from './service'
 
 export default {
-  // 随机获取一张图片接口
-  randomImage() { return service.get("/v2/");},
+  // 批量上传
+  batchUpload(data) { return service.upload("/image/upload", data);},
+  // 读取
+  read(data) { return service.get("/image", data)},
+  // 删除
+  del(data) { return service.del("/image", data) },
 }

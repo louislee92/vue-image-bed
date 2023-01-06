@@ -39,6 +39,33 @@ const post = (url, data) => {
   })
 }
 
-export default {get, post}
+const put = (url, data) => {
+  return instance({
+    method: "put",
+    url: url,
+    data: data || {},
+    headers: {'token': localStorage.token},
+  })
+}
+
+const del = (url, data) => {
+  return instance({
+    method: "delete",
+    url: url,
+    data: data || {},
+    headers: {'token': localStorage.token},
+  })
+}
+
+const upload = (url, data) => {
+  return instance({
+    method: "post",
+    url: url,
+    data: data || {},
+    headers: {'Content-Type': 'multipart/form-data', 'token': localStorage.token},
+  })
+}
+
+export default {get, post, put, del, upload}
 
 

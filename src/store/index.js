@@ -1,7 +1,5 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import user from "./modules/user"
-import room from './modules/room'
 import createPersistedState from 'vuex-persistedstate'
 import SecureLS from "secure-ls"
 
@@ -25,9 +23,6 @@ export default new Vuex.Store({
   getters,
   mutations,
   actions,
-  modules: {
-    user, room
-  },
   plugins: [
     createPersistedState({
       // key: SystemConfig.storageKey,
