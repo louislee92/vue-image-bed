@@ -20,14 +20,20 @@ module.exports = {
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
     proxyTable: {
-      '/api': {
+      '/java-image-bed': {
         target: 'http://localhost:8090',
         changeOrigin: true,
         secure: false,
         ws: true,
         pathRewrite: {
-          '^/api': '/'
+          '^/java-image-bed': '/'
         }
+      },
+      '/image-bed': {
+        target: 'http://localhost/image-bed',
+        changeOrigin: true,
+        secure: false,
+        ws: true,
       }
     },
 
@@ -54,7 +60,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: '/vue-image-bed/',
 
     /**
      * Source Maps

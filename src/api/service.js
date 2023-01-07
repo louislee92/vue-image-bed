@@ -3,7 +3,7 @@ import Qs from 'qs'
 import { Message } from 'element-ui';
 
 const instance = axios.create({
-  baseURL: '/api',
+  baseURL: '/java-image-bed',
   timeout: 5000,    // 超时
 });
 // 添加响应拦截器
@@ -22,7 +22,7 @@ const get = (url, data) => {
     method: "get",
     url: url,
     params: data,
-    headers: {'token': localStorage.token},
+    headers: {'code': sessionStorage.code},
     paramsSerializer: function(params) {
       return Qs.stringify(params, {arrayFormat: 'brackets'})
     },
@@ -35,7 +35,7 @@ const post = (url, data) => {
     method: "post",
     url: url,
     data: data || {},
-    headers: {'token': localStorage.token},
+    headers: {'code': sessionStorage.code},
   })
 }
 
@@ -44,7 +44,7 @@ const put = (url, data) => {
     method: "put",
     url: url,
     data: data || {},
-    headers: {'token': localStorage.token},
+    headers: {'code': sessionStorage.code},
   })
 }
 
@@ -53,7 +53,7 @@ const del = (url, data) => {
     method: "delete",
     url: url,
     data: data || {},
-    headers: {'token': localStorage.token},
+    headers: {'code': sessionStorage.code},
   })
 }
 
@@ -62,7 +62,7 @@ const upload = (url, data) => {
     method: "post",
     url: url,
     data: data || {},
-    headers: {'Content-Type': 'multipart/form-data', 'token': localStorage.token},
+    headers: {'Content-Type': 'multipart/form-data', 'code': sessionStorage.code},
   })
 }
 
