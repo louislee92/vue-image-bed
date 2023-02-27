@@ -95,6 +95,7 @@ export default {
         }
         _this.$api.batchUpload(formData).then(res => {
           _this.search();
+          _this.$message.success("批量上传成功");
         }).catch(e => {
           console.error("error", e)
           _this.$message.error("上传出错");
