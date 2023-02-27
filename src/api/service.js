@@ -13,6 +13,10 @@ instance.interceptors.response.use(res=>{
   if (err && err.message && err.message.indexOf('timeout') > -1) {
     return Promise.reject("请求超时");
   }
+  if(err && err.response && err.response.status == 503) {
+    Message.error("服务暂时不可用，请稍后再试");
+    return Promise.reject("服务暂时不可用");
+  }
   // 响应拦失败拦截
   return Promise.reject(err)
 })
